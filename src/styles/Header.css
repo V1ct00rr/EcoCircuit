@@ -1,0 +1,117 @@
+/* ============================================
+   HEADER - EcoCircuit
+   ============================================ */
+
+.header-container {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+  border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.header-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 8px;
+  border: 2px solid rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+  border-color: #4CAF50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #b0b0b0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-logo-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .header-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .header-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-container {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .header-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header-title {
+    font-size: 1.75rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.75rem;
+  }
+}

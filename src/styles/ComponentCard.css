@@ -1,0 +1,321 @@
+/* ============================================
+   COMPONENT CARD - EcoCircuit
+   ============================================ */
+
+.component-card {
+  background-color: #1a1a1a;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 70px;
+}
+
+.component-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.component-card:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+  transform: translateY(-2px);
+}
+
+.component-card:hover::before {
+  left: 100%;
+}
+
+/* Variações por categoria */
+.card-fonte {
+  border-left: 4px solid #FFD700;
+}
+
+.card-fonte:hover {
+  border-left-color: #FFC107;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.card-energia {
+  border-left: 4px solid #2196F3;
+}
+
+.card-energia:hover {
+  border-left-color: #1976D2;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+}
+
+.card-consumo {
+  border-left: 4px solid #F44336;
+}
+
+.card-consumo:hover {
+  border-left-color: #D32F2F;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+}
+
+/* Estado selecionado */
+.component-card.selected {
+  border-color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+/* Ícone do componente */
+.component-icon {
+  font-size: 2rem;
+  min-width: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.component-card:hover .component-icon {
+  background-color: rgba(76, 175, 80, 0.2);
+  transform: scale(1.1);
+}
+
+/* Informações do componente */
+.component-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.component-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.component-power {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badge de seleção */
+.component-selected-badge {
+  width: 28px;
+  height: 28px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.badge-icon {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* ============================================
+   RESPONSIVIDADE - DESKTOP
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .component-card {
+    padding: 1rem;
+    gap: 1rem;
+    min-height: 75px;
+  }
+
+  .component-icon {
+    font-size: 2rem;
+    min-width: 55px;
+  }
+
+  .component-name {
+    font-size: 0.95rem;
+  }
+
+  .component-power {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .component-card {
+    padding: 0.9rem;
+    gap: 0.9rem;
+    min-height: 70px;
+  }
+
+  .component-icon {
+    font-size: 1.8rem;
+    min-width: 48px;
+    padding: 0.45rem;
+  }
+
+  .component-name {
+    font-size: 0.9rem;
+  }
+
+  .component-power {
+    font-size: 0.75rem;
+  }
+
+  .component-selected-badge {
+    width: 26px;
+    height: 26px;
+  }
+
+  .badge-icon {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET PEQUENO
+   ============================================ */
+
+@media (max-width: 768px) {
+  .component-card {
+    padding: 0.8rem;
+    gap: 0.8rem;
+    min-height: 65px;
+  }
+
+  .component-icon {
+    font-size: 1.6rem;
+    min-width: 44px;
+    padding: 0.4rem;
+  }
+
+  .component-name {
+    font-size: 0.85rem;
+  }
+
+  .component-power {
+    font-size: 0.7rem;
+  }
+
+  .component-selected-badge {
+    width: 24px;
+    height: 24px;
+  }
+
+  .badge-icon {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE
+   ============================================ */
+
+@media (max-width: 576px) {
+  .component-card {
+    padding: 0.7rem;
+    gap: 0.7rem;
+    min-height: 60px;
+  }
+
+  .component-icon {
+    font-size: 1.4rem;
+    min-width: 40px;
+    padding: 0.35rem;
+  }
+
+  .component-name {
+    font-size: 0.8rem;
+  }
+
+  .component-power {
+    font-size: 0.65rem;
+  }
+
+  .component-selected-badge {
+    width: 22px;
+    height: 22px;
+  }
+
+  .badge-icon {
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE PEQUENO
+   ============================================ */
+
+@media (max-width: 380px) {
+  .component-card {
+    padding: 0.6rem;
+    gap: 0.6rem;
+    min-height: 55px;
+  }
+
+  .component-icon {
+    font-size: 1.2rem;
+    min-width: 36px;
+    padding: 0.3rem;
+  }
+
+  .component-name {
+    font-size: 0.75rem;
+  }
+
+  .component-power {
+    font-size: 0.6rem;
+  }
+
+  .component-selected-badge {
+    width: 20px;
+    height: 20px;
+  }
+
+  .badge-icon {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
