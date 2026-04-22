@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container1 {
 
   color: white;
@@ -124,3 +125,322 @@ li {
   font-size: 1.2rem;
   color: white;
 }
+=======
+/* ============================================
+   APP - EcoCircuit
+   ============================================ */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Layout Principal */
+.app-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 2fr;
+  gap: 2rem;
+  width: 100%;
+  align-items: start;
+}
+
+/* Sidebar Esquerda - Melhorada */
+.sidebar-left {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: calc(100vh - 300px);
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar da sidebar - Estilizado */
+.sidebar-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 4px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(76, 175, 80, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(76, 175, 80, 0.6);
+}
+
+/* Main Content Area */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 600px;
+}
+
+/* Impact Section */
+.impact-section {
+  width: 100%;
+  animation: fadeIn 0.6s ease-out 0.3s backwards;
+}
+
+/* Footer */
+.app-footer {
+  background-color: rgba(76, 175, 80, 0.08);
+  border-top: 1px solid rgba(76, 175, 80, 0.2);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.app-footer p {
+  margin: 0;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVIDADE - DESKTOP
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .app-layout {
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+  }
+
+  .app-main {
+    padding: 0 2rem;
+    gap: 2.5rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .app-layout {
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+  }
+
+  .app-main {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .sidebar-left {
+    max-height: calc(100vh - 250px);
+  }
+
+  .sidebar-content {
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET PEQUENO
+   ============================================ */
+
+@media (max-width: 900px) {
+  .app-layout {
+    grid-template-columns: 250px 1fr;
+    gap: 1.25rem;
+  }
+
+  .app-main {
+    gap: 1.25rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET VERTICAL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sidebar-left {
+    order: 2;
+    max-height: none;
+  }
+
+  .main-content {
+    order: 1;
+  }
+
+  .sidebar-content {
+    position: relative;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    gap: 1rem;
+  }
+
+  .app-main {
+    padding: 0 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .app-footer {
+    padding: 1.5rem 0.75rem;
+    margin-top: 1.5rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE
+   ============================================ */
+
+@media (max-width: 576px) {
+  .app-layout {
+    gap: 1rem;
+  }
+
+  .app-main {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+
+  .sidebar-left {
+    order: 2;
+  }
+
+  .main-content {
+    order: 1;
+    min-height: 400px;
+  }
+
+  .sidebar-content {
+    gap: 0.75rem;
+    max-height: 350px;
+  }
+
+  .app-footer {
+    padding: 1rem 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .app-footer p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE PEQUENO
+   ============================================ */
+
+@media (max-width: 380px) {
+  .app-main {
+    padding: 0 0.25rem;
+  }
+
+  .sidebar-content {
+    gap: 0.5rem;
+    max-height: 300px;
+  }
+
+  .app-footer {
+    padding: 0.75rem 0.25rem;
+  }
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+
+/* Suporte a telas muito largas */
+@media (min-width: 1600px) {
+  .app-layout {
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+  }
+
+  .app-main {
+    padding: 0 3rem;
+    gap: 3rem;
+  }
+}
+
+/* Suporte a telas ultra-pequenas (smartwatch, etc) */
+@media (max-width: 320px) {
+  .app-main {
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  .sidebar-content {
+    gap: 0.25rem;
+  }
+
+  .app-footer p {
+    font-size: 0.65rem;
+  }
+}
+>>>>>>> f84a94b (fix: corrigir agregação de totais de geração e consumo diário)

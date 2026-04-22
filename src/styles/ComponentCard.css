@@ -1,0 +1,545 @@
+/* ============================================
+   COMPONENT CARD - EcoCircuit
+   ============================================ */
+
+.component-card {
+  background-color: #1a1a1a;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: default;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.component-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.1), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.component-card:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+  transform: translateY(-2px);
+}
+
+.component-card:hover::before {
+  left: 100%;
+}
+
+/* Variações por categoria */
+.card-fonte {
+  border-left: 4px solid #FFD700;
+}
+
+.card-fonte:hover {
+  border-left-color: #FFC107;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.card-energia {
+  border-left: 4px solid #2196F3;
+}
+
+.card-energia:hover {
+  border-left-color: #1976D2;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+}
+
+.card-consumo {
+  border-left: 4px solid #F44336;
+}
+
+.card-consumo:hover {
+  border-left-color: #D32F2F;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+}
+
+/* Estado selecionado */
+.component-card.selected {
+  border-color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+/* ============================================
+   CARD HEADER - Ícone e Informações
+   ============================================ */
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Ícone do componente */
+.component-icon {
+  font-size: 2rem;
+  min-width: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.component-card:hover .component-icon {
+  background-color: rgba(76, 175, 80, 0.2);
+  transform: scale(1.1);
+}
+
+/* Informações do componente */
+.component-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.component-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.component-power {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.component-model {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #888888;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.component-description {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #666666;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================
+   CARD CONTROLS - Quantidade e Total
+   ============================================ */
+
+.card-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #333333;
+}
+
+/* Controles de Quantidade */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-quantity {
+  background-color: #2a2a2a;
+  border: 1px solid #444444;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-weight: bold;
+}
+
+.btn-quantity:hover:not(:disabled) {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  transform: scale(1.05);
+}
+
+.btn-quantity:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.btn-quantity:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-input {
+  width: 50px;
+  height: 36px;
+  background-color: #2a2a2a;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Remove spinner do input number */
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Total de Potência */
+.total-power {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.total-label {
+  font-size: 0.75rem;
+  color: #888888;
+  font-weight: 500;
+}
+
+.total-value {
+  font-size: 1rem;
+  color: #4CAF50;
+  font-weight: 700;
+}
+
+.calculation {
+  font-size: 0.7rem;
+  color: #666666;
+  margin-left: 0.25rem;
+}
+
+/* ============================================
+   RESPONSIVIDADE - DESKTOP
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .component-card {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .card-header {
+    gap: 1rem;
+  }
+
+  .component-icon {
+    font-size: 2rem;
+    min-width: 55px;
+  }
+
+  .component-name {
+    font-size: 0.95rem;
+  }
+
+  .component-power {
+    font-size: 0.8rem;
+  }
+
+  .component-model {
+    font-size: 0.75rem;
+  }
+
+  .component-description {
+    font-size: 0.7rem;
+  }
+
+  .btn-quantity {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .quantity-input {
+    width: 50px;
+    height: 36px;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .component-card {
+    padding: 0.9rem;
+    gap: 0.7rem;
+  }
+
+  .card-header {
+    gap: 0.9rem;
+  }
+
+  .component-icon {
+    font-size: 1.8rem;
+    min-width: 48px;
+    padding: 0.45rem;
+  }
+
+  .component-name {
+    font-size: 0.9rem;
+  }
+
+  .component-power {
+    font-size: 0.75rem;
+  }
+
+  .component-model {
+    font-size: 0.7rem;
+  }
+
+  .component-description {
+    font-size: 0.65rem;
+    -webkit-line-clamp: 1;
+  }
+
+  .btn-quantity {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .quantity-input {
+    width: 45px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .total-value {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET PEQUENO
+   ============================================ */
+
+@media (max-width: 768px) {
+  .component-card {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .card-header {
+    gap: 0.8rem;
+  }
+
+  .component-icon {
+    font-size: 1.6rem;
+    min-width: 44px;
+    padding: 0.4rem;
+  }
+
+  .component-name {
+    font-size: 0.85rem;
+  }
+
+  .component-power {
+    font-size: 0.7rem;
+  }
+
+  .component-model {
+    font-size: 0.65rem;
+  }
+
+  .component-description {
+    font-size: 0.6rem;
+    -webkit-line-clamp: 1;
+  }
+
+  .btn-quantity {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+
+  .quantity-input {
+    width: 40px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .total-value {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE
+   ============================================ */
+
+@media (max-width: 576px) {
+  .component-card {
+    padding: 0.7rem;
+    gap: 0.5rem;
+  }
+
+  .card-header {
+    gap: 0.7rem;
+  }
+
+  .component-icon {
+    font-size: 1.4rem;
+    min-width: 40px;
+    padding: 0.35rem;
+  }
+
+  .component-name {
+    font-size: 0.8rem;
+  }
+
+  .component-power {
+    font-size: 0.65rem;
+  }
+
+  .component-model {
+    font-size: 0.6rem;
+  }
+
+  .component-description {
+    display: none;
+  }
+
+  .btn-quantity {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .quantity-input {
+    width: 38px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .total-value {
+    font-size: 0.85rem;
+  }
+
+  .calculation {
+    font-size: 0.65rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE PEQUENO
+   ============================================ */
+
+@media (max-width: 380px) {
+  .component-card {
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .card-header {
+    gap: 0.6rem;
+  }
+
+  .component-icon {
+    font-size: 1.2rem;
+    min-width: 36px;
+    padding: 0.3rem;
+  }
+
+  .component-name {
+    font-size: 0.75rem;
+  }
+
+  .component-power {
+    font-size: 0.6rem;
+  }
+
+  .component-model {
+    font-size: 0.55rem;
+  }
+
+  .btn-quantity {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+  }
+
+  .quantity-input {
+    width: 35px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+
+  .total-value {
+    font-size: 0.8rem;
+  }
+
+  .total-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

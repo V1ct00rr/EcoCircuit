@@ -1,0 +1,348 @@
+/* ============================================
+   COMPONENT PANEL - EcoCircuit
+   ============================================ */
+
+.component-panel {
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInLeft 0.5s ease-out;
+  flex-shrink: 0;
+}
+
+.component-panel:hover {
+  border-color: rgba(76, 175, 80, 0.3);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+}
+
+/* Header do painel */
+.panel-header {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(76, 175, 80, 0.04) 100%);
+  border-bottom: 1px solid #333333;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.panel-header:hover {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.12) 0%, rgba(76, 175, 80, 0.08) 100%);
+}
+
+.panel-title-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.panel-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.panel-header:hover .panel-icon {
+  background-color: rgba(76, 175, 80, 0.2);
+  transform: scale(1.05);
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Toggle button */
+.panel-toggle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.panel-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.panel-toggle.expanded svg {
+  transform: rotate(180deg);
+}
+
+.panel-header:hover .panel-toggle {
+  color: #4CAF50;
+}
+
+/* Conteúdo do painel */
+.panel-content {
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: rgba(76, 175, 80, 0.3);
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(76, 175, 80, 0.5);
+}
+
+.components-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Estado vazio */
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #b0b0b0;
+  min-height: 100px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVIDADE - DESKTOP
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .component-panel {
+    border-radius: 12px;
+  }
+
+  .panel-header {
+    padding: 1rem;
+  }
+
+  .panel-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  .panel-title {
+    font-size: 1.1rem;
+  }
+
+  .panel-content {
+    padding: 1rem;
+    max-height: 600px;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .component-panel {
+    border-radius: 10px;
+  }
+
+  .panel-header {
+    padding: 0.9rem;
+  }
+
+  .panel-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+
+  .panel-title {
+    font-size: 1rem;
+  }
+
+  .panel-content {
+    padding: 0.9rem;
+    max-height: 450px;
+  }
+
+  .components-list {
+    gap: 0.65rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET PEQUENO
+   ============================================ */
+
+@media (max-width: 768px) {
+  .component-panel {
+    border-radius: 10px;
+  }
+
+  .panel-header {
+    padding: 0.8rem;
+  }
+
+  .panel-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .panel-title {
+    font-size: 0.95rem;
+  }
+
+  .panel-toggle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .panel-content {
+    padding: 0.8rem;
+    max-height: 400px;
+  }
+
+  .components-list {
+    gap: 0.6rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE
+   ============================================ */
+
+@media (max-width: 576px) {
+  .component-panel {
+    border-radius: 8px;
+  }
+
+  .panel-header {
+    padding: 0.7rem;
+  }
+
+  .panel-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .panel-title {
+    font-size: 0.9rem;
+  }
+
+  .panel-toggle {
+    width: 24px;
+    height: 24px;
+  }
+
+  .panel-content {
+    padding: 0.7rem;
+    max-height: 350px;
+  }
+
+  .components-list {
+    gap: 0.5rem;
+  }
+
+  .empty-state {
+    padding: 1.5rem 0.75rem;
+    min-height: 80px;
+  }
+
+  .empty-state p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE PEQUENO
+   ============================================ */
+
+@media (max-width: 380px) {
+  .component-panel {
+    border-radius: 8px;
+  }
+
+  .panel-header {
+    padding: 0.6rem;
+  }
+
+  .panel-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+
+  .panel-title {
+    font-size: 0.8rem;
+  }
+
+  .panel-content {
+    padding: 0.6rem;
+    max-height: 300px;
+  }
+
+  .components-list {
+    gap: 0.4rem;
+  }
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
